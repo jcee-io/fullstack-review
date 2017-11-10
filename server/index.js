@@ -35,10 +35,7 @@ app.get('/repos', function (req, res) {
 
 });
 
-let port = process.env.PORT || 1128;
-let ip = process.env.IP || 'localhost';
-
-app.listen(port, ip, function() {
-  console.log(`listening on port ${port}`);
+app.listen(process.env.PORT || 1128, process.env.IP || 'localhost', function() {
+  console.log(`SERVER START`);
 });
 
