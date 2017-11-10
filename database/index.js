@@ -2,7 +2,8 @@
 const mongoose = require('mongoose');
 const Promise = require('bluebird');
 
-mongoose.connect('mongodb://localhost/fetcher');
+let dbURL = process.env.DATABASE_URL || 'mongodb://localhost/fetcher';
+mongoose.connect(dbURL);
 
 let repoSchema = mongoose.Schema({
   // TODO: your schema here!

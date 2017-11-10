@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const github = require('../helpers/github');
 const db = require('../database/index');
+const pg = require('pg');
+
 let app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -33,9 +35,10 @@ app.get('/repos', function (req, res) {
 
 });
 
-let port = 1128;
+let port = process.env.PORT || 1128;
+let ip = process.env.IP || 'localhost';
 
-app.listen(port, function() {
+app.listen(port, ip, function() {
   console.log(`listening on port ${port}`);
 });
 
